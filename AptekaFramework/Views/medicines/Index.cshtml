@@ -27,7 +27,7 @@
             @Html.DisplayNameFor(model => model.med_price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.met_cat)
+            @Html.DisplayNameFor(model => model.med_cat)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.med_quant)
@@ -56,7 +56,7 @@
             @Html.DisplayFor(modelItem => item.med_price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.met_cat)
+            @Html.DisplayFor(modelItem => item.med_cat)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.med_quant)
@@ -65,9 +65,9 @@
             @Html.DisplayFor(modelItem => item.med_receipt)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_med }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_med }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_med })
+            @Html.ActionLink("Edit", "Edit", new { id=item.med_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.med_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.med_ID })
         </td>
     </tr>
 }

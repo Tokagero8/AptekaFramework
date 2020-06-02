@@ -15,7 +15,7 @@ namespace AptekaFramework.Models
         }
 
         [Key]
-        public int ID_vend { get; set; }
+        public int vend_ID { get; set; }
 
         [Required]
         [StringLength(50)]

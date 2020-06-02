@@ -12,7 +12,7 @@ namespace AptekaFramework.Controllers
 {
     public class ordersController : Controller
     {
-        private AptekaContext db = new AptekaContext();
+        private Apteka_DBContext db = new Apteka_DBContext();
 
         // GET: orders
         public ActionResult Index()
@@ -39,9 +39,9 @@ namespace AptekaFramework.Controllers
         // GET: orders/Create
         public ActionResult Create()
         {
-            ViewBag.customers_ID = new SelectList(db.customers, "ID_cust", "cust_name");
-            ViewBag.delivery_ID = new SelectList(db.deliveries, "ID_delivery", "delivery_method");
-            ViewBag.payment_ID = new SelectList(db.payments, "ID_payment", "payment_method");
+            ViewBag.customers_ID = new SelectList(db.customers, "cust_ID", "cust_name");
+            ViewBag.delivery_ID = new SelectList(db.deliveries, "delivery_ID", "delivery_method");
+            ViewBag.payment_ID = new SelectList(db.payments, "payment_ID", "payment_method");
             return View();
         }
 
@@ -50,7 +50,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_order,customers_ID,order_time,payment_ID,delivery_ID")] order order)
+        public ActionResult Create([Bind(Include = "order_ID,customers_ID,order_time,payment_ID,delivery_ID,completed")] order order)
         {
             if (ModelState.IsValid)
             {
@@ -59,9 +59,9 @@ namespace AptekaFramework.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.customers_ID = new SelectList(db.customers, "ID_cust", "cust_name", order.customers_ID);
-            ViewBag.delivery_ID = new SelectList(db.deliveries, "ID_delivery", "delivery_method", order.delivery_ID);
-            ViewBag.payment_ID = new SelectList(db.payments, "ID_payment", "payment_method", order.payment_ID);
+            ViewBag.customers_ID = new SelectList(db.customers, "cust_ID", "cust_name", order.customers_ID);
+            ViewBag.delivery_ID = new SelectList(db.deliveries, "delivery_ID", "delivery_method", order.delivery_ID);
+            ViewBag.payment_ID = new SelectList(db.payments, "payment_ID", "payment_method", order.payment_ID);
             return View(order);
         }
 
@@ -77,9 +77,9 @@ namespace AptekaFramework.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.customers_ID = new SelectList(db.customers, "ID_cust", "cust_name", order.customers_ID);
-            ViewBag.delivery_ID = new SelectList(db.deliveries, "ID_delivery", "delivery_method", order.delivery_ID);
-            ViewBag.payment_ID = new SelectList(db.payments, "ID_payment", "payment_method", order.payment_ID);
+            ViewBag.customers_ID = new SelectList(db.customers, "cust_ID", "cust_name", order.customers_ID);
+            ViewBag.delivery_ID = new SelectList(db.deliveries, "delivery_ID", "delivery_method", order.delivery_ID);
+            ViewBag.payment_ID = new SelectList(db.payments, "payment_ID", "payment_method", order.payment_ID);
             return View(order);
         }
 
@@ -88,7 +88,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_order,customers_ID,order_time,payment_ID,delivery_ID")] order order)
+        public ActionResult Edit([Bind(Include = "order_ID,customers_ID,order_time,payment_ID,delivery_ID,completed")] order order)
         {
             if (ModelState.IsValid)
             {
@@ -96,9 +96,9 @@ namespace AptekaFramework.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.customers_ID = new SelectList(db.customers, "ID_cust", "cust_name", order.customers_ID);
-            ViewBag.delivery_ID = new SelectList(db.deliveries, "ID_delivery", "delivery_method", order.delivery_ID);
-            ViewBag.payment_ID = new SelectList(db.payments, "ID_payment", "payment_method", order.payment_ID);
+            ViewBag.customers_ID = new SelectList(db.customers, "cust_ID", "cust_name", order.customers_ID);
+            ViewBag.delivery_ID = new SelectList(db.deliveries, "delivery_ID", "delivery_method", order.delivery_ID);
+            ViewBag.payment_ID = new SelectList(db.payments, "payment_ID", "payment_method", order.payment_ID);
             return View(order);
         }
 

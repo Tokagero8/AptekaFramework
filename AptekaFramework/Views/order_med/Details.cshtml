@@ -19,6 +19,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.order.order_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order.order_ID)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.quantity)
         </dt>
 
@@ -29,6 +37,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_order_med }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.order_med_ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

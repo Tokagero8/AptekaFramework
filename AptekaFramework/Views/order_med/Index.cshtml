@@ -15,6 +15,9 @@
             @Html.DisplayNameFor(model => model.medicine.med_name)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.order.order_ID)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.quantity)
         </th>
         <th></th>
@@ -26,12 +29,15 @@
             @Html.DisplayFor(modelItem => item.medicine.med_name)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.order.order_ID)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.quantity)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_order_med }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_order_med }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_order_med })
+            @Html.ActionLink("Edit", "Edit", new { id=item.order_med_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.order_med_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.order_med_ID })
         </td>
     </tr>
 }

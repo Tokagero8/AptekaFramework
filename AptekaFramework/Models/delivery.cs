@@ -16,7 +16,7 @@ namespace AptekaFramework.Models
         }
 
         [Key]
-        public int ID_delivery { get; set; }
+        public int delivery_ID { get; set; }
 
         [Column(TypeName = "text")]
         [Required]

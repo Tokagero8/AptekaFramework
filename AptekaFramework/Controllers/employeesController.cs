@@ -12,7 +12,7 @@ namespace AptekaFramework.Controllers
 {
     public class employeesController : Controller
     {
-        private AptekaContext db = new AptekaContext();
+        private Apteka_DBContext db = new Apteka_DBContext();
 
         // GET: employees
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_empl,empl_name,empl_surname,empl_phone,empl_mail,empl_login,empl_passwd,empl_title,empl_head")] employee employee)
+        public ActionResult Create([Bind(Include = "empl_ID,empl_name,empl_surname,empl_phone,empl_mail,empl_login,empl_passwd,empl_title,empl_head")] employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_empl,empl_name,empl_surname,empl_phone,empl_mail,empl_login,empl_passwd,empl_title,empl_head")] employee employee)
+        public ActionResult Edit([Bind(Include = "empl_ID,empl_name,empl_surname,empl_phone,empl_mail,empl_login,empl_passwd,empl_title,empl_head")] employee employee)
         {
             if (ModelState.IsValid)
             {

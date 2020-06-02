@@ -9,7 +9,7 @@ namespace AptekaFramework.Models
     public partial class employee
     {
         [Key]
-        public int ID_empl { get; set; }
+        public int empl_ID { get; set; }
 
         [Required]
         [StringLength(50)]

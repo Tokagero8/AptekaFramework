@@ -12,7 +12,7 @@ namespace AptekaFramework.Controllers
 {
     public class vendorsController : Controller
     {
-        private AptekaContext db = new AptekaContext();
+        private Apteka_DBContext db = new Apteka_DBContext();
 
         // GET: vendors
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_vend,vend_name,vend_adress,vend_phone")] vendor vendor)
+        public ActionResult Create([Bind(Include = "vend_ID,vend_name,vend_adress,vend_phone")] vendor vendor)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_vend,vend_name,vend_adress,vend_phone")] vendor vendor)
+        public ActionResult Edit([Bind(Include = "vend_ID,vend_name,vend_adress,vend_phone")] vendor vendor)
         {
             if (ModelState.IsValid)
             {

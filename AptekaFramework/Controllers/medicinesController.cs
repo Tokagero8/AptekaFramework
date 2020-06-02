@@ -12,7 +12,7 @@ namespace AptekaFramework.Controllers
 {
     public class medicinesController : Controller
     {
-        private AptekaContext db = new AptekaContext();
+        private Apteka_DBContext db = new Apteka_DBContext();
 
         // GET: medicines
         public ActionResult Index()
@@ -39,7 +39,7 @@ namespace AptekaFramework.Controllers
         // GET: medicines/Create
         public ActionResult Create()
         {
-            ViewBag.vendors_ID = new SelectList(db.vendors, "ID_vend", "vend_name");
+            ViewBag.vendors_ID = new SelectList(db.vendors, "vend_ID", "vend_name");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_med,med_name,med_int,med_desc,med_price,vendors_ID,met_cat,med_quant,med_receipt")] medicine medicine)
+        public ActionResult Create([Bind(Include = "med_ID,med_name,med_int,med_desc,med_price,vendors_ID,med_cat,med_quant,med_receipt")] medicine medicine)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace AptekaFramework.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.vendors_ID = new SelectList(db.vendors, "ID_vend", "vend_name", medicine.vendors_ID);
+            ViewBag.vendors_ID = new SelectList(db.vendors, "vend_ID", "vend_name", medicine.vendors_ID);
             return View(medicine);
         }
 
@@ -73,7 +73,7 @@ namespace AptekaFramework.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.vendors_ID = new SelectList(db.vendors, "ID_vend", "vend_name", medicine.vendors_ID);
+            ViewBag.vendors_ID = new SelectList(db.vendors, "vend_ID", "vend_name", medicine.vendors_ID);
             return View(medicine);
         }
 
@@ -82,7 +82,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_med,med_name,med_int,med_desc,med_price,vendors_ID,met_cat,med_quant,med_receipt")] medicine medicine)
+        public ActionResult Edit([Bind(Include = "med_ID,med_name,med_int,med_desc,med_price,vendors_ID,med_cat,med_quant,med_receipt")] medicine medicine)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace AptekaFramework.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.vendors_ID = new SelectList(db.vendors, "ID_vend", "vend_name", medicine.vendors_ID);
+            ViewBag.vendors_ID = new SelectList(db.vendors, "vend_ID", "vend_name", medicine.vendors_ID);
             return View(medicine);
         }
 

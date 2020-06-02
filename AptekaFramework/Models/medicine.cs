@@ -15,7 +15,7 @@ namespace AptekaFramework.Models
         }
 
         [Key]
-        public int ID_med { get; set; }
+        public int med_ID { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -27,23 +27,17 @@ namespace AptekaFramework.Models
         [StringLength(50)]
         public string med_desc { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string med_price { get; set; }
+        public decimal med_price { get; set; }
 
         public int vendors_ID { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string met_cat { get; set; }
+        public string med_cat { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string med_quant { get; set; }
+        public int med_quant { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string med_receipt { get; set; }
+        public bool med_receipt { get; set; }
 
         public virtual vendor vendor { get; set; }
 

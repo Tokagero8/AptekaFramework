@@ -12,12 +12,12 @@ namespace AptekaFramework.Controllers
 {
     public class order_medController : Controller
     {
-        private AptekaContext db = new AptekaContext();
+        private Apteka_DBContext db = new Apteka_DBContext();
 
         // GET: order_med
         public ActionResult Index()
         {
-            var order_med = db.order_med.Include(o => o.medicine);
+            var order_med = db.order_med.Include(o => o.medicine).Include(o => o.order);
             return View(order_med.ToList());
         }
 
@@ -39,7 +39,8 @@ namespace AptekaFramework.Controllers
         // GET: order_med/Create
         public ActionResult Create()
         {
-            ViewBag.medicines_ID = new SelectList(db.medicines, "ID_med", "med_name");
+            ViewBag.medicines_ID = new SelectList(db.medicines, "med_ID", "med_name");
+            ViewBag.order_ID = new SelectList(db.orders, "order_ID", "order_ID");
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_order_med,medicines_ID,quantity")] order_med order_med)
+        public ActionResult Create([Bind(Include = "order_med_ID,medicines_ID,quantity,order_ID")] order_med order_med)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +58,8 @@ namespace AptekaFramework.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.medicines_ID = new SelectList(db.medicines, "ID_med", "med_name", order_med.medicines_ID);
+            ViewBag.medicines_ID = new SelectList(db.medicines, "med_ID", "med_name", order_med.medicines_ID);
+            ViewBag.order_ID = new SelectList(db.orders, "order_ID", "order_ID", order_med.order_ID);
             return View(order_med);
         }
 
@@ -73,7 +75,8 @@ namespace AptekaFramework.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.medicines_ID = new SelectList(db.medicines, "ID_med", "med_name", order_med.medicines_ID);
+            ViewBag.medicines_ID = new SelectList(db.medicines, "med_ID", "med_name", order_med.medicines_ID);
+            ViewBag.order_ID = new SelectList(db.orders, "order_ID", "order_ID", order_med.order_ID);
             return View(order_med);
         }
 
@@ -82,7 +85,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_order_med,medicines_ID,quantity")] order_med order_med)
+        public ActionResult Edit([Bind(Include = "order_med_ID,medicines_ID,quantity,order_ID")] order_med order_med)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +93,8 @@ namespace AptekaFramework.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.medicines_ID = new SelectList(db.medicines, "ID_med", "med_name", order_med.medicines_ID);
+            ViewBag.medicines_ID = new SelectList(db.medicines, "med_ID", "med_name", order_med.medicines_ID);
+            ViewBag.order_ID = new SelectList(db.orders, "order_ID", "order_ID", order_med.order_ID);
             return View(order_med);
         }
 

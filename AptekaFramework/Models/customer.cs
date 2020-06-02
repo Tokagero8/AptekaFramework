@@ -15,7 +15,7 @@ namespace AptekaFramework.Models
         }
 
         [Key]
-        public int ID_cust { get; set; }
+        public int cust_ID { get; set; }
 
         [Required]
         [StringLength(50)]

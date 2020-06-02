@@ -5,10 +5,10 @@ namespace AptekaFramework.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class AptekaContext : DbContext
+    public partial class Apteka_DBContext : DbContext
     {
-        public AptekaContext()
-            : base("name=AptekaContext")
+        public Apteka_DBContext()
+            : base("name=Apteka_DBContext")
         {
         }
 
@@ -41,17 +41,24 @@ namespace AptekaFramework.Models
                 .Property(e => e.delivery_status)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<delivery>()
-                .HasMany(e => e.orders)
-                .WithRequired(e => e.delivery)
-                .HasForeignKey(e => e.delivery_ID)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<medicine>()
+                .Property(e => e.med_price)
+                .HasPrecision(19, 2);
 
             modelBuilder.Entity<medicine>()
                 .HasMany(e => e.order_med)
                 .WithRequired(e => e.medicine)
                 .HasForeignKey(e => e.medicines_ID)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<order>()
+                .HasMany(e => e.order_med)
+                .WithRequired(e => e.order)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<payment>()
+                .Property(e => e.amount)
+                .HasPrecision(19, 2);
 
             modelBuilder.Entity<payment>()
                 .Property(e => e.payment_method)
@@ -64,12 +71,6 @@ namespace AptekaFramework.Models
             modelBuilder.Entity<payment>()
                 .Property(e => e.payment_number)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<payment>()
-                .HasMany(e => e.orders)
-                .WithRequired(e => e.payment)
-                .HasForeignKey(e => e.payment_ID)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<vendor>()
                 .HasMany(e => e.medicines)

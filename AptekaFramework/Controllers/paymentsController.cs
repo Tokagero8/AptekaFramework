@@ -12,7 +12,7 @@ namespace AptekaFramework.Controllers
 {
     public class paymentsController : Controller
     {
-        private AptekaContext db = new AptekaContext();
+        private Apteka_DBContext db = new Apteka_DBContext();
 
         // GET: payments
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_payment,amount,payment_method,payment_status,payment_number,payment_time")] payment payment)
+        public ActionResult Create([Bind(Include = "payment_ID,amount,payment_method,payment_status,payment_number,payment_time")] payment payment)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_payment,amount,payment_method,payment_status,payment_number,payment_time")] payment payment)
+        public ActionResult Edit([Bind(Include = "payment_ID,amount,payment_method,payment_status,payment_number,payment_time")] payment payment)
         {
             if (ModelState.IsValid)
             {

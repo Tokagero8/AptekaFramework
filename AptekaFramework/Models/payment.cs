@@ -16,9 +16,9 @@ namespace AptekaFramework.Models
         }
 
         [Key]
-        public int ID_payment { get; set; }
+        public int payment_ID { get; set; }
 
-        public double amount { get; set; }
+        public decimal amount { get; set; }
 
         [Column(TypeName = "text")]
         [Required]

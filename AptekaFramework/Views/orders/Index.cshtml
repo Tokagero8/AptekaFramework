@@ -23,6 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.order_time)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.completed)
+        </th>
         <th></th>
     </tr>
 
@@ -41,9 +44,12 @@
             @Html.DisplayFor(modelItem => item.order_time)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_order }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_order }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_order })
+            @Html.DisplayFor(modelItem => item.completed)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.order_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.order_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.order_ID })
         </td>
     </tr>
 }

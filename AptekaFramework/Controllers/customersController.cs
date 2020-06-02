@@ -12,7 +12,7 @@ namespace AptekaFramework.Controllers
 {
     public class customersController : Controller
     {
-        private AptekaContext db = new AptekaContext();
+        private Apteka_DBContext db = new Apteka_DBContext();
 
         // GET: customers
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_cust,cust_name,cust_surname,cust_phone,cust_mail,cust_login,cust_passwd,cust_adress")] customer customer)
+        public ActionResult Create([Bind(Include = "cust_ID,cust_name,cust_surname,cust_phone,cust_mail,cust_login,cust_passwd,cust_adress")] customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_cust,cust_name,cust_surname,cust_phone,cust_mail,cust_login,cust_passwd,cust_adress")] customer customer)
+        public ActionResult Edit([Bind(Include = "cust_ID,cust_name,cust_surname,cust_phone,cust_mail,cust_login,cust_passwd,cust_adress")] customer customer)
         {
             if (ModelState.IsValid)
             {

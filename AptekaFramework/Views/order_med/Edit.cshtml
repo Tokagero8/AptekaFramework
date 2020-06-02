@@ -15,7 +15,7 @@
         <h4>order_med</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID_order_med)
+        @Html.HiddenFor(model => model.order_med_ID)
 
         <div class="form-group">
             @Html.LabelFor(model => model.medicines_ID, "medicines_ID", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -30,6 +30,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.order_ID, "order_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("order_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.order_ID, "", new { @class = "text-danger" })
             </div>
         </div>
 

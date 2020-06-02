@@ -12,7 +12,7 @@ namespace AptekaFramework.Controllers
 {
     public class deliveriesController : Controller
     {
-        private AptekaContext db = new AptekaContext();
+        private Apteka_DBContext db = new Apteka_DBContext();
 
         // GET: deliveries
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_delivery,delivery_method,delivery_track_number,delivery_status")] delivery delivery)
+        public ActionResult Create([Bind(Include = "delivery_ID,delivery_method,delivery_track_number,delivery_status")] delivery delivery)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace AptekaFramework.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_delivery,delivery_method,delivery_track_number,delivery_status")] delivery delivery)
+        public ActionResult Edit([Bind(Include = "delivery_ID,delivery_method,delivery_track_number,delivery_status")] delivery delivery)
         {
             if (ModelState.IsValid)
             {

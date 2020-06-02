@@ -9,12 +9,16 @@ namespace AptekaFramework.Models
     public partial class order_med
     {
         [Key]
-        public int ID_order_med { get; set; }
+        public int order_med_ID { get; set; }
 
         public int medicines_ID { get; set; }
 
         public int quantity { get; set; }
 
+        public int order_ID { get; set; }
+
         public virtual medicine medicine { get; set; }
+
+        public virtual order order { get; set; }
     }
 }
