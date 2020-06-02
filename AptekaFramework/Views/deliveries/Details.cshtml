@@ -1,0 +1,42 @@
+﻿@model AptekaFramework.Models.delivery
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>delivery</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.delivery_method)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.delivery_method)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.delivery_track_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.delivery_track_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.delivery_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.delivery_status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_delivery }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

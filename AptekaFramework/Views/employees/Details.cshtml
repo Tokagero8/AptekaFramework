@@ -1,0 +1,82 @@
+﻿@model AptekaFramework.Models.employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.empl_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empl_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empl_surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empl_surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empl_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empl_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empl_mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empl_mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empl_login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empl_login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empl_passwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empl_passwd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empl_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empl_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empl_head)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empl_head)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_empl }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AptekaFramework.Models.medicine>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.vendor.vend_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.med_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.med_int)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.med_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.med_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.met_cat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.med_quant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.med_receipt)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.vendor.vend_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.med_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.med_int)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.med_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.med_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.met_cat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.med_quant)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.med_receipt)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_med }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_med }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_med })
+        </td>
+    </tr>
+}
+
+</table>

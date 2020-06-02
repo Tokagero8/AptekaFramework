@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AptekaFramework.Models.employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.empl_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.empl_surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.empl_phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.empl_mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.empl_login)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.empl_passwd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.empl_title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.empl_head)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.empl_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empl_surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empl_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empl_mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empl_login)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empl_passwd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empl_title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empl_head)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_empl }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_empl }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_empl })
+        </td>
+    </tr>
+}
+
+</table>

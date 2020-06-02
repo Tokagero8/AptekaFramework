@@ -1,0 +1,80 @@
+﻿@model AptekaFramework.Models.customer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_passwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_passwd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_adress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_adress)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

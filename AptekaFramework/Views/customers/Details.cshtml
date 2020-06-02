@@ -1,0 +1,74 @@
+﻿@model AptekaFramework.Models.customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_passwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_passwd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_adress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_adress)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_cust }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
